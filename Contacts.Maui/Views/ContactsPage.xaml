@@ -9,7 +9,8 @@
         Background="Transparent"
         SeparatorColor="Silver"
         RowHeight="60"
-        ItemSelected="listContacts_ItemSelected">
+        ItemSelected="listContacts_ItemSelected"
+        ItemTapped="listContacts_ItemTapped">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <TextCell Text="{Binding Name}"
