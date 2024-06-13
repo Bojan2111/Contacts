@@ -34,6 +34,20 @@ public partial class EditContactPage : ContentPage
 
     private void btnUpdate_Clicked(object sender, EventArgs e)
     {
+        if (nameValidator.IsNotValid)
+        {
+            DisplayAlert("Error", "Name is required.\nName should be at least 1 characters long.", "OK");
+            return;
+        }
+
+        if (emailValidator.IsNotValid)
+        {
+            foreach(var error in emailValidator.Errors)
+            {
+                DisplayAlert("Error", error.ToString(), "OK");
+            }
+        }
+
         _contact.Name = entryName.Text;
         _contact.Email = entryEmail.Text;
         _contact.Phone = entryPhone.Text;

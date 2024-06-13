@@ -26,7 +26,6 @@ public partial class ContactsPage : ContentPage
         {
             Contact contact = listContacts.SelectedItem as Contact;
             await Shell.Current.GoToAsync($"{nameof(EditContactPage)}?Id={contact.Id}");
-            //DisplayAlert(contact.Name, contact.Email, "OK");
         }
     }
 
