@@ -15,7 +15,12 @@ public partial class ContactsPage : ContentPage
     {
         base.OnAppearing();
 
-        var contacts = new ObservableCollection<Contact>( ContactRepository.GetContacts() );
+        LoadContacts();
+    }
+
+    private void LoadContacts()
+    {
+        var contacts = new ObservableCollection<Contact>(ContactRepository.GetContacts());
 
         listContacts.ItemsSource = contacts;
     }
@@ -41,6 +46,11 @@ public partial class ContactsPage : ContentPage
 
     private void btnDelete_Clicked(object sender, EventArgs e)
     {
+        var menuItem = sender as MenuItem;
+        var contact = menuItem.CommandParameter as Contact;
 
+        ContactRepository.RemoveContact(contact.Id);
+
+        LoadContacts();
     }
 }

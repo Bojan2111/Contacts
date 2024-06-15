@@ -61,5 +61,15 @@ namespace Contacts.Maui.Models
             contact.Id = maxId + 1;
             _contacts.Add(contact);
         }
+
+        public static void RemoveContact(int id)
+        {
+            var contact = _contacts.FirstOrDefault(x => x.Id == id);
+
+            if (contact != null)
+            {
+                _contacts.Remove(contact);
+            }
+        }
     }
 }
